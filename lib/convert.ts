@@ -5,10 +5,11 @@ import stringify from 'remark-stringify';
 import stringWidth from 'string-width';
 import {unified} from 'unified';
 
-import {collectDefinitions, removeDefinitions} from './definitions';
-import createTelegramifyOptions from './telegramify';
+import {collectDefinitions, removeDefinitions} from './definitions.js';
+import createTelegramifyOptions from './telegramify.js';
+import {UnsupportedTagsStrategy} from './types.js';
 
-export default (markdown, unsupportedTagsStrategy) => {
+export default (markdown: string, unsupportedTagsStrategy?: UnsupportedTagsStrategy) => {
 	const definitions = {};
 
 	const telegramifyOptions = createTelegramifyOptions(definitions, unsupportedTagsStrategy);

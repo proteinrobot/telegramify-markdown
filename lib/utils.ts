@@ -1,10 +1,10 @@
 import {URL} from 'url';
 
-export function wrap(string, ...wrappers) {
+export function wrap(string: string, ...wrappers: string[]) {
 	return [...wrappers, string, ...wrappers.reverse()].join('');
 }
 
-export function isURL(string) {
+export function isURL(string: string) {
 	try {
 		return Boolean(new URL(string));
 	} catch (error) {
@@ -12,9 +12,9 @@ export function isURL(string) {
 	}
 }
 
-export function escapeSymbols(text, textType = 'text') {
+export function escapeSymbols(text: string | null | undefined, textType = 'text') {
 	if (!text) {
-		return text;
+		return '';
 	}
 	switch (textType) {
 		case 'code':
@@ -44,7 +44,7 @@ export function escapeSymbols(text, textType = 'text') {
 	}
 }
 
-export function processUnsupportedTags(content, strategy) {
+export function processUnsupportedTags(content: string, strategy?: string) {
 	switch (strategy) {
 		case 'escape':
 			return escapeSymbols(content);

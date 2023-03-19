@@ -1,5 +1,5 @@
 import {stripIndents} from 'common-tags';
-import convert from '../lib/convert';
+import convert from '../lib/convert.js';
 
 describe('Test convert method', () => {
 	it('Text', () => {

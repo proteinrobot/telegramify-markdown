@@ -22,5 +22,8 @@
 			"fileMatch": ["package.json", "tsup.config.json"]
 		}
 	],
-	"jest.showCoverageOnLoad": true
+	"jest.showCoverageOnLoad": true,
+	"[typescript]": {
+		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+	}
 }
