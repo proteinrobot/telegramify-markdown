@@ -1,9 +1,8 @@
 {
-	"name": "telegramify-markdown",
+	"name": "@proteinrobot/telegramify-markdown",
 	"version": "0.0.0-development",
 	"description": "Convert markdown into Telegram-specific markdown",
 	"type": "module",
-	"private": true,
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.js",
 	"files": ["README.md", "LICENSE", "dist"],
@@ -13,13 +12,18 @@
 			"require": "./dist/index.cjs"
 		}
 	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	},
 	"scripts": {
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
 		"lint": "eslint",
 		"build": "tsup",
 		"semantic-release": "semantic-release",
 		"prepare": "husky install",
-		"codecov": "codecov"
+		"codecov": "codecov",
+		"prepack": "npm run build",
+		"publish": "clean-publish"
 	},
 	"repository": {
 		"type": "git",
@@ -48,6 +52,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "^17.4.4",
 		"@commitlint/config-conventional": "^17.4.4",
+		"clean-publish": "^4.1.1",
 		"codecov": "^3.8.3",
 		"eslint": "^8.36.0",
 		"husky": "^8.0.3",
