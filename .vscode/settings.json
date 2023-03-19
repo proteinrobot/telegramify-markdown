@@ -1,0 +1,26 @@
+{
+	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+	"editor.formatOnPaste": false,
+	"editor.formatOnType": false,
+	"editor.formatOnSave": true,
+	"editor.formatOnSaveMode": "file",
+	"files.autoSave": "onFocusChange",
+	"vs-code-prettier-eslint.prettierLast": true,
+	"javascript.format.enable": false,
+	"typescript.format.enable": false,
+	"html.format.enable": false,
+	"less.format.enable": false,
+	"scss.format.enable": false,
+	"css.format.enable": false,
+	"json.format.enable": false,
+	"[json]": {
+		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+	},
+	"json.schemas": [
+		{
+			"url": "https://unpkg.com/tsup/schema.json",
+			"fileMatch": ["package.json", "tsup.config.json"]
+		}
+	],
+	"jest.showCoverageOnLoad": true
+}

@@ -1,4 +1,4 @@
-const convert = require('../lib/convert');
+import convert from '../lib/convert';
 
 describe('Test convert method', () => {
 	it('Text', () => {
@@ -219,17 +219,18 @@ describe('Test convert method', () => {
 
 	it('Bold text in lists', () => {
 		const markdown = '- To make text **bold**, surround it with double asterisks (`**`): `**This text is bold.**`';
-		const tgMarkdown = '•   To make text *bold*, surround it with double asterisks \\(`**`\\): `**This text is bold.**`\n';
+		const tgMarkdown =
+			'•   To make text *bold*, surround it with double asterisks \\(`**`\\): `**This text is bold.**`\n';
 
 		expect(convert(markdown)).toBe(tgMarkdown);
 	});
 
 	it('Code after list', () => {
 		const markdown = `1. Foo:\n\n\`\`\`\nBar\n\`\`\``;
-		const tgMarkdown = `1\\.  Foo:\n\n\n\`\`\`\nBar\n\`\`\`\n`
+		const tgMarkdown = `1\\.  Foo:\n\n\n\`\`\`\nBar\n\`\`\`\n`;
 
 		expect(convert(markdown)).toBe(tgMarkdown);
-	})
+	});
 
 	describe('escape unsupported tags', () => {
 		it('should escape blockquote', () => {
@@ -245,7 +246,7 @@ describe('Test convert method', () => {
 
 			expect(convert(markdown, 'escape')).toBe(tgMarkdown);
 		});
-	})
+	});
 
 	describe('remove unsupported tags', () => {
 		it('should remove blockquote', () => {
@@ -261,5 +262,5 @@ describe('Test convert method', () => {
 
 			expect(convert(markdown, 'remove')).toBe(tgMarkdown);
 		});
-	})
+	});
 });
