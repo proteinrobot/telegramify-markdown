@@ -1,3 +1,4 @@
+import {stripIndents} from 'common-tags';
 import convert from '../lib/convert';
 
 describe('Test convert method', () => {
@@ -229,6 +230,26 @@ describe('Test convert method', () => {
 		const markdown = `1. Foo:\n\n\`\`\`\nBar\n\`\`\``;
 		const tgMarkdown = `1\\.  Foo:\n\n\n\`\`\`\nBar\n\`\`\`\n`;
 
+		expect(convert(markdown)).toBe(tgMarkdown);
+	});
+
+	it('Table', () => {
+		const markdown = stripIndents`
+						| Alpha | Bravo |
+						| - | - |
+						| 中文 | Charlie |
+						| 👩‍❤️‍👩 | Delta |
+						| 123.1 | 3212 |
+						`;
+		const tgMarkdown =
+			stripIndents`\`\`\`
+						| Alpha | Bravo   |
+						| ----- | ------- |
+						| 中文  | Charlie |
+						| 👩‍❤️‍👩    | Delta   |
+						| 123.1 | 3212    |
+						\`\`\`
+						` + '\n';
 		expect(convert(markdown)).toBe(tgMarkdown);
 	});
 

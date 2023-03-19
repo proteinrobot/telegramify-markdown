@@ -13,7 +13,7 @@
 		}
 	},
 	"scripts": {
-		"test": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
+		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
 		"lint": "eslint",
 		"build": "tsup",
 		"semantic-release": "semantic-release",
@@ -32,12 +32,14 @@
 	},
 	"homepage": "https://github.com/skoropadas/telegramify-markdown#readme",
 	"dependencies": {
+		"common-tags": "^1.8.2",
 		"mdast-util-gfm-table": "^1.0.7",
 		"mdast-util-to-markdown": "^1.5.0",
 		"remark-gfm": "^3.0.1",
 		"remark-parse": "^10.0.1",
 		"remark-remove-comments": "^1.0.1",
 		"remark-stringify": "^10.0.2",
+		"string-width": "^5.1.2",
 		"unified": "^10.1.2",
 		"unist-util-remove": "^3.1.1",
 		"unist-util-visit": "^4.1.2"
@@ -59,6 +61,11 @@
 		"*.{js,json,md}": ["prettier --write", "git add"],
 		"*.{css,scss,less}": "stylelint --fix",
 		"*.js": "eslint --cache --fix"
+	},
+	"jest": {
+		"verbose": true,
+		"collectCoverage": true,
+		"coverageDirectory": "coverage"
 	},
 	"prettier": {
 		"printWidth": 120,
